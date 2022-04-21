@@ -1,5 +1,6 @@
 package pack_main;
 
+import java.util.Scanner;
 import pack_employee.Employee;
 import pack_employee.Salary;
 import pack_employee_updates.EmployeeUpdates;
@@ -8,28 +9,36 @@ public class EmployeeMain {
 
 	public static void main(String[] args) {
 		
-		Employee e1 = new Employee();
+		Scanner sc = new Scanner(System.in);
 		
-		e1.setFirstName("Naruto");
-		e1.setLastName("Uzumaki");
+		System.out.println("Enter First Name : ");
 		
-		Salary salE1 = new Salary();
+		String firstName = sc.next();
 		
-		salE1.setBasic(50000);
-		salE1.setHra(2000);
-		salE1.setOptedForNPS(false);
-		salE1.setTa(5000);
+		System.out.println("Enter Last Name");
+		String lastName = sc.next();
 		
-		e1.setSalary(salE1);
+		System.out.println("Enter Basic");
+		int basic = sc.nextInt();
 		
+		System.out.println("Enter HRA");
+		int hra = sc.nextInt();
+		
+		System.out.println("Enter Travelling Allowences");
+		float ta = sc.nextFloat();
+		
+		System.out.println("Want NPS ?");
+		boolean nps = sc.nextBoolean();
+		
+		Salary salE1 = new Salary(basic,hra,ta,nps);
+		
+		Employee e1 = new Employee(firstName, lastName, salE1);
 		
 		EmployeeUpdates eu = new EmployeeUpdates();
 		
 		eu.getDetails(e1);
 		
-		
-		
-		
+	
 
 	}
 }
